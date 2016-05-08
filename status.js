@@ -9,7 +9,7 @@ function processUpdate(data) {
     $(".parked_list").append(row);
   });
   if(data.current_call !== null) {
-    $(".current_call").html("<b class=\"call_active\">On the phone with " + data.current_call.cid_name + "(" + data.current_call.cid_number + ")");
+    $(".current_call").html("<b class=\"call_active\">On the phone with " + data.current_call.cid_name + "(" + data.current_call.cid_num + ")");
   } else {
     $(".current_call").html("No one on the phone currently");
   }
