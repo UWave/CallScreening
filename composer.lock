@@ -1,0 +1,82 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "62907aaadbd9d1cdb46fe24ed2992d74",
+    "content-hash": "e0f6ddc88a3625c6a1e3f6169ddd65a9",
+    "packages": [
+        {
+            "name": "giggsey/libphonenumber-for-php",
+            "version": "7.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/giggsey/libphonenumber-for-php.git",
+                "reference": "0681962d2feba35935d1bd06d3088b548801b76a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/0681962d2feba35935d1bd06d3088b548801b76a",
+                "reference": "0681962d2feba35935d1bd06d3088b548801b76a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*"
+            },
+            "require-dev": {
+                "pear/pear-core-minimal": "^1.9",
+                "pear/pear_exception": "^1.0",
+                "pear/versioncontrol_git": "dev-master",
+                "phing/phing": "~2.7",
+                "phpunit/phpunit": "~4.0",
+                "satooshi/php-coveralls": "~0.6",
+                "symfony/console": "^2.5"
+            },
+            "suggest": {
+                "ext-intl": "To use the geocoder and carrier mapping"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "7.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "libphonenumber": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Joshua Gigg",
+                    "email": "giggsey@gmail.com",
+                    "homepage": "http://giggsey.com/"
+                }
+            ],
+            "description": "PHP Port of Google's libphonenumber",
+            "homepage": "https://github.com/giggsey/libphonenumber-for-php",
+            "keywords": [
+                "geocoding",
+                "geolocation",
+                "libphonenumber",
+                "mobile",
+                "phonenumber",
+                "validation"
+            ],
+            "time": "2016-05-04 08:29:21"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

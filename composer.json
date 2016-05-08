@@ -1,0 +1,14 @@
+{
+    "name": "uwave/call-screening",
+    "description": "A FusionPBX call screening plugin",
+    "require": {
+        "giggsey/libphonenumber-for-php": "^7.3"
+    },
+    "license": "GPLv3",
+    "authors": [
+        {
+            "name": "UWave Radio",
+            "email": "tech@uwave.fm"
+        }
+    ]
+}
