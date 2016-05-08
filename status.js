@@ -1,5 +1,5 @@
 function processUpdate(data) {
-  $(".parked_calls").remove();
+  $(".parked_call").remove();
   data.parked.each(function(call) {
     var row = $("<tr>").data("call", call.call).addClass("parked_call");
     row.append($("<td>").text(call.caller_id_number).addClass("caller_id_number").addClass('row_style0'));
