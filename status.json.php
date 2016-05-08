@@ -25,8 +25,6 @@ function uuid_getvar($uuid, $var) {
 $valet_info = new SimpleXMLElement(trim(event_socket_request($fp, "api valet_info")));
 $out = array("parked"=>array());
 foreach($valet_info as $lot) {
-	$lot_name = (string)$lot['name'];
-	$out["parked"][$lot_name] = array();
 	foreach($lot as $spot) {
 		$uuid = (string)$spot['uuid'];
 		$spot = (int)$spot;
@@ -37,7 +35,7 @@ foreach($valet_info as $lot) {
 		foreach($vars as $var) {
 			$call[$var] = uuid_getvar($uuid, $var);
 		}
-		$out["parked"][$lot_name][] = $call;
+		$out["parked"][] = $call;
 	}
 }
 $out["current_call"] = NULL;
