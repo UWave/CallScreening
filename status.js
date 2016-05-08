@@ -1,5 +1,12 @@
 function processUpdate(data) {
-  console.log(data);
+  data.parked.each(function(call) {
+    var row = $("<tr>").data("call", call.call);
+    row.append($("<td>").text(call.caller_id_number).addClass("caller_id_number"));
+    row.append($("<td>").text(call.caller_id_name).addClass("caller_id_name"));
+    row.append($("<td>").text(call.description).addClass("description"));
+    row.append($("<td>").text("-").addClass("actions"));
+    $(".parked_list").append(row);
+  });
 }
 
 function parseUpdate(response) {

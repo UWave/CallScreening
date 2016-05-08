@@ -9,7 +9,7 @@ require_once "resources/check_auth.php";
 $settings = json_decode(file_get_contents(__DIR__."/settings.json"), true);
 
 
-$vars = array('caller_id_number', 'caller_id_name');
+$vars = array('caller_id_number', 'caller_id_name', 'description');
 
 $fp = event_socket_create($_SESSION['event_socket_ip_address'], $_SESSION['event_socket_port'], $_SESSION['event_socket_password']);
 

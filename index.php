@@ -26,11 +26,11 @@ require_once "resources/paging.php";
 		</td>
 	</tr>
 	<tr>
-		<td class="current_status"></td>
+		<td class="current_call"></td>
 	</tr>
 	<tr>
 		<td>
-			<table class="tr_hover" width="100%" border="0" cellpadding="0" cellspacing="0" class="parkedlist">
+			<table class="tr_hover parked_list" width="100%" border="0" cellpadding="0" cellspacing="0">
 				<thead>
 					<tr>
 						<th>Caller Number</th>
