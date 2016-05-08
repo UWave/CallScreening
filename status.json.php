@@ -42,9 +42,11 @@ foreach($valet_info as $lot) {
 }
 $out["current_call"] = NULL;
 $channels = json_decode(trim(event_socket_request($fp, "api show channels as json")));
-foreach($channels['rows'] as $channel) {
-	if($channel['dest'] == $settings['on_air_user']) {
-		$settings["current_call"] = $channel;
+if(isset($channels["rows"])) {
+	foreach($channels['rows'] as $channel) {
+		if($channel['dest'] == $settings['on_air_user']) {
+			$settings["current_call"] = $channel;
+		}
 	}
 }
 echo json_encode($out);
