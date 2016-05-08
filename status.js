@@ -8,6 +8,11 @@ function processUpdate(data) {
     row.append($("<td>").text("-").addClass("actions").addClass('row_style1'));
     $(".parked_list").append(row);
   });
+  if(data.current_call !== null) {
+    $(".current_call").html("<b class=\"call_active\">On the phone with " + data.current_call.cid_name + "(" + data.current_call.cid_number + ")");
+  } else {
+    $(".current_call").html("No one on the phone currently");
+  }
   setTimeout(update, 1000);
 }
 
