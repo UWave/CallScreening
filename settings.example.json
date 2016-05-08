@@ -6,5 +6,6 @@
     "gateway": "83b5ad84-736f-49c2-81b0-a41d1cbe8b7b",
     "prefix": "9"
   },
-  "on_air_user": "2471@fusionpbx.uwave.fm"
+  "on_air_user": "2471",
+  "on_air_domain": "fusionpbx.uwave.fm"
 }
