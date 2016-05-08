@@ -10,3 +10,8 @@ To install it, clone into fusionpbx's `app/` folder and run the menu upgrades (A
   run `composer install` within the directory. You'll need to have [Composer](https://getcomposer.org/).
   Next log into FusionPBX, go int Advanced->Upgrade, check "menu" and click "Execute". You may need
   to log out and log back in for it to show up in the menu.
+
+# Slack
+We use Slack as a crappy interface for now. If you wish to configure Slack webhooks for call
+origination, setup a webhook pointing at `slack.php`. Copy `settings.example.json` and update as
+needed. You will likely need to change most, if not all, of the example values.
