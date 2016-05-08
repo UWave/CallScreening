@@ -21,5 +21,5 @@ if(isset($_POST['text'])) {
 
 	$number_str = $phoneUtil->format($number, \libphonenumber\PhoneNumberFormat::E164);
 
-	event_socket_request($fp, "api originate sofia/gateway/83b5ad84-736f-49c2-81b0-a41d1cbe8b7b/9".$number_str." '&bridge(user/2471@pbx.uwave.fm)'");
+	event_socket_request($fp, "api originate sofia/gateway/".$settings['origination']['gateway']."/".$settings['origination']['prefix'].$number_str." '&bridge(user/".$settings['on_air_user'].")'");
 }
