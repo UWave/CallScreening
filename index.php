@@ -26,6 +26,9 @@ require_once "resources/paging.php";
 		</td>
 	</tr>
 	<tr>
+		<td class="current_status"></td>
+	</tr>
+	<tr>
 		<td>
 			<table class="tr_hover" width="100%" border="0" cellpadding="0" cellspacing="0" class="parkedlist">
 				<thead>
@@ -40,5 +43,7 @@ require_once "resources/paging.php";
 		</td>
 	</tr>
 </table>
+<script type="text/javascript" src="status.js">
+</script>
 <?php
 require_once "footer.php";
