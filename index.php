@@ -15,18 +15,13 @@ require_once "resources/paging.php";
 		<td>
 			<table width="100%" border="0" cellpadding="0" cellspacing="0">
 				<tr>
-					<td>
-						<b>Call Screening</b>
-					</td>
+					<td class="current_call"></td>
 					<td width="30%" align="right" valign="top">
 						<input type="text" class="originate_number" /><button onclick="javascript: void(0)">Call</button>
 					</td>
 				</tr>
 			</table>
 		</td>
-	</tr>
-	<tr>
-		<td class="current_call"></td>
 	</tr>
 	<tr>
 		<td>
