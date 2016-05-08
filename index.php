@@ -17,7 +17,7 @@ require_once "resources/paging.php";
 				<tr>
 					<td class="current_call"></td>
 					<td width="30%" align="right" valign="top">
-						<input type="text" class="originate_number" /><button onclick="javascript: void(0)">Call</button>
+						<input type="text" class="originate_number" /><button onclick="javascript: void(0)" class="btn">Call</button>
 					</td>
 				</tr>
 			</table>
