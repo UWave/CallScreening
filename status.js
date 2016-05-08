@@ -7,7 +7,10 @@ function parseUpdate(response) {
 }
 
 function update() {
-  fetch('status.json.php').then(parseUpdate).then(processUpdate);
+  var request = new Request('status.json.php', {
+    credentials: 'same-origin'
+  });
+  fetch(request).then(parseUpdate).then(processUpdate);
 }
 
 $(document).ready(update);
