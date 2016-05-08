@@ -6,6 +6,8 @@
 require_once "root.php";
 require_once "resources/require.php";
 require_once "resources/check_auth.php";
+$settings = json_decode(file_get_contents(__DIR__."/settings.json"), true);
+
 
 $vars = array('caller_id_number', 'caller_id_name');
 
@@ -20,12 +22,11 @@ function uuid_getvar($uuid, $var) {
 	return trim(event_socket_request($fp, "api uuid_getvar ".$uuid." ".$var));
 }
 
-$xml = trim(event_socket_request($fp, "api valet_info"));
-$valet_info = new SimpleXMLElement($xml);
-$out = array();
+$valet_info = new SimpleXMLElement(trim(event_socket_request($fp, "api valet_info")));
+$out = array("parked"=>array());
 foreach($valet_info as $lot) {
 	$lot_name = (string)$lot['name'];
-	$out[$lot_name] = array();
+	$out["parked"][$lot_name] = array();
 	foreach($lot as $spot) {
 		$uuid = (string)$spot['uuid'];
 		$spot = (int)$spot;
@@ -36,8 +37,14 @@ foreach($valet_info as $lot) {
 		foreach($vars as $var) {
 			$call[$var] = uuid_getvar($uuid, $var);
 		}
-		$out[$lot_name][] = $call;
+		$out["parked"][$lot_name][] = $call;
 	}
 }
-
+$out["current_call"] = NULL;
+$channels = json_decode(trim(event_socket_request($fp, "api show channels as json")));
+foreach($channels['rows'] as $channel) {
+	if($channel['dest'] == $settings['on_air_user']) {
+		$settings["current_call"] = $channel;
+	}
+}
 echo json_encode($out);
