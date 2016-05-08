@@ -5,7 +5,7 @@ function processUpdate(data) {
     row.append($("<td>").text(call.caller_id_number).addClass("caller_id_number").addClass('row_style0'));
     row.append($("<td>").text(call.caller_id_name).addClass("caller_id_name").addClass('row_style0'));
     row.append($("<td>").text(call.description).addClass("description").addClass('row_style1'));
-    row.append($("<td>").text("-").addClass("actions"));
+    row.append($("<td>").text("-").addClass("actions").addClass('row_style1'));
     $(".parked_list").append(row);
   });
   setTimeout(update, 1000);
