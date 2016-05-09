@@ -12,6 +12,12 @@ if (!$fp) {
 
 $out = array();
 
+function sanatize_uuid($input) {
+	$output_array;
+	preg_match("/[a-z0-9-]*/", $input, $output_array);
+	return $output_array[0];
+}
+
 $postdata = json_decode(file_get_contents('php://input'), true);
 if(isset($postdata['action'])) {
   switch($postdata['action']) {
@@ -20,7 +26,7 @@ if(isset($postdata['action'])) {
       event_socket_request($fp, "api originate sofia/internal/".$settings['on_air_user']."%".$settings['on_air_domain']." '&valet_park(parking_lot ".$slot.")'");
     break;
 		case "hangup":
-			event_socket_request($fp, "api uuid_kill ".$postdata['call']);
+			event_socket_request($fp, "api uuid_kill ".sanatize_uuid($postdata['call']));
 		break;
   }
 } else {
