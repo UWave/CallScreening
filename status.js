@@ -28,7 +28,7 @@ function processUpdate(data) {
     row.append($("<td>").text(call.caller_id_name).addClass("caller_id_name").addClass('row_style0'));
     row.append($("<td>").text(call.description).addClass("description").addClass('row_style1'));
     var hangupButton = $("<button>").text("Hang up").data("call", call.call);
-    row.append($("<td>").append(hangupButton).addClass("actions").addClass('row_style1'));
+    row.html($("<td>").append(hangupButton).addClass("actions").addClass('row_style1'));
     $(".parked_list").append(row);
     row.on('click', unpark);
     hangupButton.on('click', hangup);
