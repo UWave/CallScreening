@@ -28,6 +28,9 @@ if(isset($postdata['action'])) {
 		case "hangup":
 			event_socket_request($fp, "api uuid_kill ".sanatize_uuid($postdata['call']));
 		break;
+		case "describe":
+			event_socket_request($fp, "api uuid_setvar ".sanatize_uuid($postdata['call']." description ".$postdata['description']));
+		break;
   }
 } else {
   die(json_encode(array("error" => "Please send an action!")));
