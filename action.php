@@ -20,6 +20,7 @@ if(isset($postdata['action'])) {
       event_socket_request($fp, "api originate sofia/internal/".$settings['on_air_user']."%".$settings['on_air_domain']." '&valet_park(parking_lot ".$slot.")'");
     break;
 		case "hangup":
+			event_socket_request($fp, "api uuid_kill ".$postdata['call']);
 		break;
   }
 } else {
