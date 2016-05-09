@@ -1,11 +1,22 @@
+function unpark() {
+  fetch('action.php', {
+    method: "POST",
+    body: JSON.stringify({
+      action: "unpark",
+      spot: this.dataset.spot
+    })
+  });
+}
+
 function processUpdate(data) {
   $(".parked_call").remove();
   data.parked.each(function(call) {
-    var row = $("<tr>").data("call", call.call).addClass("parked_call");
+    var row = $("<tr>").data("call", call.call).data("spot", call.spot).addClass("parked_call");
     row.append($("<td>").text(call.caller_id_number).addClass("caller_id_number").addClass('row_style0'));
     row.append($("<td>").text(call.caller_id_name).addClass("caller_id_name").addClass('row_style0'));
     row.append($("<td>").text(call.description).addClass("description").addClass('row_style1'));
     row.append($("<td>").text("-").addClass("actions").addClass('row_style1'));
+    row.click(unpark);
     $(".parked_list").append(row);
   });
   if(data.current_call !== null) {
