@@ -32,7 +32,7 @@ if(isset($postdata['action'])) {
 			event_socket_request($fp, "api uuid_kill ".sanatize_uuid($postdata['call']));
 		break;
 		case "describe":
-			event_socket_request($fp, "api uuid_setvar ".sanatize_uuid($postdata['call']." description ".$postdata['description']));
+			event_socket_request($fp, "api uuid_setvar ".sanatize_uuid($postdata['call'])." description ".$postdata['description']);
 		break;
   }
 } else {
