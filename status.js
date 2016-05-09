@@ -14,7 +14,8 @@ function hangup() {
     method: "POST",
     credentials: 'same-origin',
     body: JSON.stringify({
-      action: "hangup"
+      action: "hangup",
+      call: $(this).data('call')
     })
   });
 }
@@ -22,19 +23,21 @@ function hangup() {
 function processUpdate(data) {
   $(".parked_call").remove();
   data.parked.each(function(call) {
-    var row = $("<tr>").data("call", call.call).data("spot", call.spot).addClass("parked_call");
+    var row = $("<tr>").data("spot", call.spot).addClass("parked_call");
     row.append($("<td>").text(call.caller_id_number).addClass("caller_id_number").addClass('row_style0'));
     row.append($("<td>").text(call.caller_id_name).addClass("caller_id_name").addClass('row_style0'));
     row.append($("<td>").text(call.description).addClass("description").addClass('row_style1'));
-    row.append($("<td>").text("-").addClass("actions").addClass('row_style1'));
+    var hangupButton = $("<button>").text("Hang up").data("call", call.call);
+    row.append($("<td>").append(hangupButton).addClass("actions").addClass('row_style1'));
     $(".parked_list").append(row);
     row.on('click', unpark);
+    hangupButton.on('click', hangup);
   });
   if(data.current_call !== null) {
     var text = $("<b>").text("On the phone with " + data.current_call.cid_name + " (" + data.current_call.cid_num + ")");
-    var btn = $("<button>").addClass('btn').text("hang up");
+    var btn = $("<button>").addClass('btn').text("hang up").data("call", data.current_call.uuid);
     $(".current_call").append(text).append(" ").append(btn);
-    btn.on('click', hangUp);
+    btn.on('click', hangup);
   } else {
     $(".current_call").html("No one on the phone currently");
   }

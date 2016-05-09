@@ -19,6 +19,8 @@ if(isset($postdata['action'])) {
       $slot = intval($postdata['spot']);
       event_socket_request($fp, "api originate sofia/internal/".$settings['on_air_user']."%".$settings['on_air_domain']." '&valet_park(parking_lot ".$slot.")'");
     break;
+		case "hangup":
+		break;
   }
 } else {
   die(json_encode(array("error" => "Please send an action!")));
