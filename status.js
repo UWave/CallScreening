@@ -4,7 +4,7 @@ function unpark() {
     credentials: 'same-origin',
     body: JSON.stringify({
       action: "unpark",
-      spot: this.dataset.spot
+      spot: $(this).data('spot')
     })
   });
 }
@@ -12,9 +12,7 @@ function unpark() {
 function processUpdate(data) {
   $(".parked_call").remove();
   data.parked.each(function(call) {
-    var row = $("<tr>").addClass("parked_call");
-    row.dataset.call = call.call;
-    row.dataset.spot = call.spot;
+    var row = $("<tr>").data("call", call.call).data("spot", call.spot).addClass("parked_call");
     row.append($("<td>").text(call.caller_id_number).addClass("caller_id_number").addClass('row_style0'));
     row.append($("<td>").text(call.caller_id_name).addClass("caller_id_name").addClass('row_style0'));
     row.append($("<td>").text(call.description).addClass("description").addClass('row_style1'));
