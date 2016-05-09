@@ -34,6 +34,17 @@ function editDescription() {
   });
 }
 
+function park() {
+  fetch('action.php', {
+    method: "POST",
+    credentials: 'same-origin',
+    body: JSON.stringify({
+      action: "park",
+      call: $(this).data('call')
+    })
+  });
+}
+
 function processUpdate(data) {
   $(".parked_call").remove();
   data.parked.each(function(call) {
@@ -52,10 +63,12 @@ function processUpdate(data) {
   });
   if(data.current_call !== null) {
     var text = $("<b>").text("On the phone with " + data.current_call.cid_name + " (" + data.current_call.cid_num + ")");
-    var btn = $("<button>").addClass('btn').text("hang up").data("call", data.current_call.uuid);
+    var hangupButton = $("<button>").addClass('btn').text("hang up").data("call", data.current_call.uuid);
+    var parkButton = $("<button>").addClass("btn").text("Hold").data("call", data.current_call.uuid);
     var description = $("<p>").text(data.current_call.description);
     $(".current_call").html($("<p>").append(text).append(" ").append(btn).append($("<br />")).append(description));
-    btn.on('click', hangup);
+    hangupButton.on('click', hangup);
+    parkButton.on('click', park);    
   } else {
     $(".current_call").html("No one on the phone currently");
   }
