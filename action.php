@@ -22,7 +22,7 @@ $postdata = json_decode(file_get_contents('php://input'), true);
 if(isset($postdata['action'])) {
   switch($postdata['action']) {
 		case "park":
-			event_socket_request($fp, "api uuid_broadcast ".sanatise_uuid($postdata['call'])." valet_park::parking_lot auto in 1500 1599");
+			event_socket_request($fp, "api uuid_broadcast ".sanatize_uuid($postdata['call'])." valet_park::parking_lot auto in 1500 1599");
 		break;
     case "unpark":
       $slot = intval($postdata['spot']);
