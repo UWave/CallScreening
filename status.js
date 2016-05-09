@@ -9,6 +9,16 @@ function unpark() {
   });
 }
 
+function hangup() {
+  fetch('action.php', {
+    method: "POST",
+    credentials: 'same-origin',
+    body: JSON.stringify({
+      action: "hangup"
+    })
+  });
+}
+
 function processUpdate(data) {
   $(".parked_call").remove();
   data.parked.each(function(call) {
@@ -21,7 +31,10 @@ function processUpdate(data) {
     row.on('click', unpark);
   });
   if(data.current_call !== null) {
-    $(".current_call").html("<b class=\"call_active\">On the phone with " + data.current_call.cid_name + " (" + data.current_call.cid_num + ")");
+    var text = $("<b>").text("On the phone with " + data.current_call.cid_name + " (" + data.current_call.cid_num + ")");
+    var btn = $("<a>").addClass('btn').attr('href', '#').text("hang up");
+    $(".current_call").append(text).append(" ").append(btn);
+    btn.on('click', hangUp);
   } else {
     $(".current_call").html("No one on the phone currently");
   }
