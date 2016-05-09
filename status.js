@@ -32,7 +32,7 @@ function processUpdate(data) {
   });
   if(data.current_call !== null) {
     var text = $("<b>").text("On the phone with " + data.current_call.cid_name + " (" + data.current_call.cid_num + ")");
-    var btn = $("<a>").addClass('btn').attr('href', '#').text("hang up");
+    var btn = $("<button>").addClass('btn').text("hang up");
     $(".current_call").append(text).append(" ").append(btn);
     btn.on('click', hangUp);
   } else {
