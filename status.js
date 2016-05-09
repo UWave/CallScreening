@@ -1,6 +1,7 @@
 function unpark() {
   fetch('action.php', {
     method: "POST",
+    credentials: 'same-origin',
     body: JSON.stringify({
       action: "unpark",
       spot: this.dataset.spot
