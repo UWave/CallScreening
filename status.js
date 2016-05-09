@@ -42,7 +42,6 @@ function processUpdate(data) {
   } else {
     $(".current_call").html("No one on the phone currently");
   }
-  setTimeout(update, 1000);
 }
 
 function parseUpdate(response) {
@@ -57,3 +56,4 @@ function update() {
 }
 
 $(document).ready(update);
+setInterval(update, 500);
