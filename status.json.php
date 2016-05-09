@@ -42,7 +42,7 @@ $out["current_call"] = NULL;
 $channels = json_decode(trim(event_socket_request($fp, "api show channels as json")), true);
 if(isset($channels["rows"])) {
 	foreach($channels['rows'] as $channel) {
-		if($channel['dest'] == $settings['on_air_user']) {
+		if($channel['dest'] == $settings['on_air_user'] || $channel['dest'] == $settings['on_air_user']."%".$settings['on_air_domain']) {
 			$out["current_call"] = $channel;
 		}
 	}
