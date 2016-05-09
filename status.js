@@ -66,9 +66,9 @@ function processUpdate(data) {
     var hangupButton = $("<button>").addClass('btn').text("hang up").data("call", data.current_call.uuid);
     var parkButton = $("<button>").addClass("btn").text("Hold").data("call", data.current_call.uuid);
     var description = $("<p>").text(data.current_call.description);
-    $(".current_call").html($("<p>").append(text).append(" ").append(btn).append($("<br />")).append(description));
+    $(".current_call").html($("<p>").append(text).append(" ").append(hangupButton).append(" ").append(parkButton).append($("<br />")).append(description));
     hangupButton.on('click', hangup);
-    parkButton.on('click', park);    
+    parkButton.on('click', park);
   } else {
     $(".current_call").html("No one on the phone currently");
   }
