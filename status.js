@@ -12,7 +12,9 @@ function unpark() {
 function processUpdate(data) {
   $(".parked_call").remove();
   data.parked.each(function(call) {
-    var row = $("<tr>").data("call", call.call).data("spot", call.spot).addClass("parked_call");
+    var row = $("<tr>").addClass("parked_call");
+    row.dataset.call = call.call;
+    row.dataset.spot = call.spot;
     row.append($("<td>").text(call.caller_id_number).addClass("caller_id_number").addClass('row_style0'));
     row.append($("<td>").text(call.caller_id_name).addClass("caller_id_name").addClass('row_style0'));
     row.append($("<td>").text(call.description).addClass("description").addClass('row_style1'));
