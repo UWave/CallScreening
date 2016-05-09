@@ -53,7 +53,8 @@ function processUpdate(data) {
   if(data.current_call !== null) {
     var text = $("<b>").text("On the phone with " + data.current_call.cid_name + " (" + data.current_call.cid_num + ")");
     var btn = $("<button>").addClass('btn').text("hang up").data("call", data.current_call.uuid);
-    $(".current_call").html($("<p>").append(text).append(" ").append(btn));
+    var description = $("<p>").text(data.current_call.description);
+    $(".current_call").html($("<p>").append(text).append(" ").append(btn).append($("<br />")).append(description));
     btn.on('click', hangup);
   } else {
     $(".current_call").html("No one on the phone currently");
