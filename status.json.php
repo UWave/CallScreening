@@ -45,7 +45,7 @@ if(isset($channels["rows"])) {
 		if($channel['dest'] == $settings['on_air_user'] || $channel['dest'] == $settings['on_air_user']."%".$settings['on_air_domain']) {
 			$out["current_call"] = $channel;
 			foreach($vars as $var) {
-				$out["current_call"] = uuid_getvar($channel['uuid'], $var);
+				$out["current_call"][$var] = uuid_getvar($channel['uuid'], $var);
 			}
 		}
 	}
