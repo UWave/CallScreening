@@ -86,4 +86,4 @@ function update() {
 }
 
 $(document).ready(update);
-setInterval(update, 500);
+setInterval(update, 1000);
